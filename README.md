@@ -1,33 +1,69 @@
 # Fraud Risk Analytics
 
-SQL-based analysis of synthetic payment transactions to identify fraud risk indicators and prioritize customer cases for investigation.
+End-to-end fraud risk analytics project using **PostgreSQL, SQL and Power BI** to identify suspicious payment behavior and prioritize customer cases for investigation.
 
-## Dataset
+The analysis covers **99,499 synthetic payment transactions** and combines multiple behavioral risk indicators into a customer-level investigation queue.
 
-- 5,000 customers
-- 6,692 devices
-- 99,499 transactions
+## Power BI Dashboard
 
-## Analysis
+### Overview
 
-The project explores four risk indicators:
+![Fraud Risk Analytics Overview](screenshots/overview.png)
 
-- Shared devices across multiple accounts
-- Geographic transaction mismatches
-- High transaction velocity
-- Rapid post-deposit cash-out
+### Risk Investigation
 
-The final SQL analysis combines these signals into a customer-level investigation priority.
+![Fraud Risk Investigation Dashboard](screenshots/risk-investigation.png)
 
-## SQL Skills
+[Download the Power BI dashboard](powerbi/Fraud_Risk_Analytics.pbix)
 
-PostgreSQL · JOINs · CTEs · Window Functions · Self-Joins · Aggregations · CASE · FILTER · COALESCE
+## Key Findings
 
-## Files
+- **99,499** transactions analyzed
+- **€7.72M** total transaction value
+- **5,000** active customers
+- **403** customers flagged for investigation
+- **1** High Priority
+- **30** Medium Priority
+- **372** Review
 
-- `01_schema.sql` — database schema
-- `02_exploratory_analysis.sql` — transaction overview
-- `03_risk_indicators.sql` — individual risk signals
-- `04_investigation_scoring.sql` — multi-signal prioritization
+Risk signals triggered:
 
-> All data is synthetic and used only for portfolio and learning purposes.
+- **237** Shared Device
+- **73** Geo Anomaly
+- **70** Rapid Cash-out
+- **55** High Velocity
+
+## Risk Indicators
+
+The analysis focuses on four behavioral signals:
+
+- **Shared Devices** — devices linked to multiple accounts
+- **Geographic Anomalies** — IP country differs from customer country
+- **High Transaction Velocity** — unusually high activity within short time windows
+- **Rapid Cash-out** — large deposits followed shortly by significant withdrawals
+
+These signals are combined into a customer-level investigation score and classified as **High Priority, Medium Priority or Review**.
+
+## Technologies
+
+**PostgreSQL · SQL · Power BI · DAX · Power Query**
+
+SQL techniques:
+
+`JOINs` · `CTEs` · `Window Functions` · `Self-Joins` · `Aggregations` · `CASE` · `FILTER` · `COALESCE`
+
+## Project Structure
+
+```text
+fraud-risk-analytics/
+├── README.md
+├── sql/
+│   ├── 01_schema.sql
+│   ├── 02_exploratory_analysis.sql
+│   ├── 03_risk_indicators.sql
+│   └── 04_investigation_scoring.sql
+├── powerbi/
+│   └── Fraud_Risk_Analytics.pbix
+└── screenshots/
+    ├── overview.png
+    └── risk-investigation.png
