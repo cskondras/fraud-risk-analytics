@@ -67,3 +67,6 @@ fraud-risk-analytics/
 └── screenshots/
     ├── overview.png
     └── risk-investigation.png
+```
+
+> All data is synthetic and used only for portfolio and learning purposes. Risk indicators support investigation and do not represent confirmed fraud.
